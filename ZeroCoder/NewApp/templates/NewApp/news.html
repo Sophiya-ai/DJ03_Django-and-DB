@@ -6,4 +6,10 @@
 
 {% block content %}
   <h1>Новостная страница</h1>
+  {% for new in news %}
+    <div>
+      <h3>{{new.title}}</h3>
+      <p>{{new.short_description}}</p>
+    </div>
+  {% endfor %}
 {% endblock %}
