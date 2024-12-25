@@ -6,10 +6,13 @@
 
 {% block content %}
   <h1>Домашняя новостная страница</h1>
-  <!-- {% for new in news %}
+  {% for new in news %}
     <div>
       <h3>{{new.title}}</h3>
       <p>{{new.short_description}}</p>
+      <p>{{new.text}}</p>
+      <h5>{{new.pub_date}}</h5>
+      <h5>{{new.writer}}</h5>
     </div>
-  {% endfor %} -->
+  {% endfor %}
 {% endblock %}
