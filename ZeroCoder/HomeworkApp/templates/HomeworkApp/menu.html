@@ -1,0 +1,22 @@
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link
+        {% if active_page == 'wStatic' %} active {% endif %}
+        " aria-current="page" href="{% url 'wStatic' %}">Настройка статических файлов в Django</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link
+      {% if active_page == 'pros' %} active {% endif %}
+      " href="{% url 'pros' %}">Прeимущества и недостатки Django</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link
+      {% if active_page == 'projects' %} active {% endif %}
+      " href="{% url 'projects' %}">Django в картинка</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link
+      {% if active_page == 'problems' %} active {% endif %}
+      " href="{% url 'problems' %}">Проблемы Django</a>
+  </li>
+</ul>

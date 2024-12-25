@@ -1,0 +1,53 @@
+{% extends 'HomeworkApp/layout.html' %}
+
+{% block title %}
+  <title>Django и static</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">{{question}}</h1>
+
+  <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">1. Настройка проекта</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Добавьте <code>'django.contrib.staticfiles'</code> в список <code>INSTALLED_APPS</code> в вашем файле <code>settings.py</code>.</li>
+                <li class="list-group-item">Установите переменную <code>STATIC_URL</code>, которая определяет URL, по которому статические файлы будут доступны. Обычно это <code>'/static/'</code>.</li>
+            </ul>
+        </div>
+  </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="card-title">2. Организация файлов</h2>
+            <p>Создайте папку <code>static</code> в корне вашего приложения или проекта. Внутри нее организуйте файлы по типу или функциональности (например, <code>css/</code>, <code>js/</code>, <code>images/</code>).</p>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="card-title">3. Подключение файлов в шаблонах</h2>
+            <p>Используйте тег <code>{% load static %}</code> в начале ваших HTML-шаблонов. Вставляйте статические файлы с помощью тега <code>{% static 'path/to/your/file' %}</code>.</p>
+            <pre><code>&lt;link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"&gt;&lt;script src="{% static 'js/script.js' %}"&gt;&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="card-title">4. Сборка статических файлов</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Для разработки обычно достаточно использовать <code>runserver</code>, который автоматически обслуживает статические файлы.</li>
+                <li class="list-group-item">Для продакшена используйте команду <code>python manage.py collectstatic</code>, которая собирает все статические файлы в одну директорию, определенную в <code>STATIC_ROOT</code>, для эффективного обслуживания.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-body">
+            <h2 class="card-title">5. Настройка для продакшена</h2>
+            <p>Убедитесь, что веб-сервер (например, Nginx или Apache) настроен для обслуживания статических файлов из директории <code>STATIC_ROOT</code>.</p>
+        </div>
+    </div>
+  </div>
+{% endblock %}
