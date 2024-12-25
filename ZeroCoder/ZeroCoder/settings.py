@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'FirstApp',
     'HomeworkApp',
     'NewApp',
+    'HWnews',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -30,4 +30,5 @@ urlpatterns = [
     path('', include('FirstApp.urls')), #если вызываем главную страницу, то пусто в кавычках
     path('HomeworkApp/', include('HomeworkApp.urls')),
     path('NewApp/', include('NewApp.urls')),
+    path('HWnews/', include('HWnews.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Для работы со статическим файлами, прописываем их подключение и использование
