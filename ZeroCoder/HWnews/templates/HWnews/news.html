@@ -5,14 +5,26 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Домашняя новостная страница</h1>
-  {% for new in news %}
-    <div>
-      <h3>{{new.title}}</h3>
-      <p>{{new.short_description}}</p>
-      <p>{{new.text}}</p>
-      <h5>{{new.pub_date}}</h5>
-      <h5>{{new.writer}}</h5>
-    </div>
-  {% endfor %}
+  <div class="container mt-4">
+        <h1 class="mb-4 text-center">Новости</h1>
+          {% if news|length == 0 %}
+            <div class="alert alert-info" role="alert">
+                  Пока нет никаких новостей
+            </div>
+          {% else %}
+            {% for new in news %}
+              <div class="card mb-3">
+                  <div class="card-body">
+                      <h3 class="card-title">{{ new.title }}</h3>
+                      <p class="card-text lead">{{ new.short_description }}</p>
+                      <p class="card-text">{{ new.text }}</p>
+                      <div class="d-flex justify-content-between align-items-center mt-3">
+                          <h5 class="text-muted">{{ new.pub_date }}</h5>
+                          <h5 class="text-muted">{{ new.writer }}</h5>
+                     </div>
+                  </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+  </div>
 {% endblock %}
