@@ -5,12 +5,44 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Страница для добавления новостей</h1>
-    <div>
-        <h2>Форма для добавления новости</h2>
-        <form>
-            
-        </form>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>Форма для добавления новости</h2>
+            </div>
+            <div class="card-body">
+                <form method="post"> <!-- можно указать здесь action указывает, куда будут перенаправляться данные,
+                    когда мы их отправим, и какая функция будет их обрабатывать. Можем указать action.
+                    Если его не указать, обрабатывать будет та же функция, которая открывает страницу
+
+                    Отлавливаем ошибку CSRF. Для прохождения проверки в начале формы
+                    (прямо под строкой <form method=”post”>) добавляем {% csrf_token %}-->
+
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">Заголовок новости</label>
+                        <input type="text" class="form-control" id="title" placeholder="Введите заголовок новости">
+                    </div>
+                    <div class="form-group">
+                        <label for="shortDescription">Краткое описание новости</label>
+                        <input type="text" class="form-control" id="shortDescription" placeholder="Введите краткое описание новости">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Текст новости</label>
+                        <textarea class="form-control" id="content" placeholder="Введите текст новости" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Дата публикации</label>
+                        <input type="date" class="form-control" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Время публикации</label>
+                        <input type="time" class="form-control" id="time">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить новость</button>
+                </form>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
