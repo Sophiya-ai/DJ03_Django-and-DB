@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import New_post  #импортируем класс
 from .forms import New_postForm
 
@@ -13,6 +13,7 @@ def add_news(request):
         form = New_postForm(request.POST) #сохраняем всю информацию от пользователя
         if form.is_valid():
             form.save()
+            return redirect('newshomepage')
         else:
             error = "Данные заполнены некорректно"
     form = New_postForm()
